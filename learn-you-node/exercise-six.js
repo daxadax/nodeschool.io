@@ -1,9 +1,11 @@
 var listFilesInDirectory = require('./list-files-in-directory');
 
 var directory = process.argv[2];
-var pattern = '.' + process.argv[3];
+var extension = process.argv[3];
 
-listFilesInDirectory(directory, pattern, function(error, contents){
+listFilesInDirectory(directory, extension, function(error, contents){
   if (error) return console.error(error);
-  return console.log(contents);
+  contents.forEach(function(file){
+    console.log(file);
+  });
 });
